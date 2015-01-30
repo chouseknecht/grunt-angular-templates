@@ -6,7 +6,9 @@ This module is a work around. It provides unit tests with a service ($ngHtmlCach
 
 
 ### Example Grunt configuration:
-````ngHtmlCache: {
+
+````
+ngHtmlCache: {
     app: {
         src: ["Client/**/*.tpl.html", "Common/**/*.tpl.html"],
         dest: "ClientTests/specs/myAppHTMLCache.js",
@@ -29,7 +31,8 @@ This module is a work around. It provides unit tests with a service ($ngHtmlCach
 
 ### Using $ngHtmlCache in a unit test:
 
-````beforeEach(inject(function (_$rootScope_, _$compile_, _$httpBackend_, _$timeout_, _$ngHtmlCache_) {
+````
+beforeEach(inject(function (_$rootScope_, _$compile_, _$httpBackend_, _$timeout_, _$ngHtmlCache_) {
 
     var tplCache = _$ngHtmlCache_;
     $httpBackend.when('GET', /\.tpl\.html/).respond(function(method, url, data) {
