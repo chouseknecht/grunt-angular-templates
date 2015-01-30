@@ -15,10 +15,10 @@ var fs        = require('fs');
 module.exports = function(grunt) {
 
   var bootstrapper = function(module, script, options) {
-    return options.angular+".module('"+module+"'"+(options.standalone ? ', []' : '')+").run(['$templateCache', function($templateCache) {\n"+script+"\n}]);\n";
+    return options.angular+".module('"+module+"'"+(options.standalone ? ', []' : '')+").factory('$ngHtmlCache', [ function() {\n return { " + script + " };\n}]);\n";
   };
 
-  var ngtemplatesTask = function() {
+  var ngHtmlCacheTask = function() {
     var options = this.options({
       angular:    'angular',
       bootstrap:  bootstrapper,
@@ -73,6 +73,6 @@ module.exports = function(grunt) {
     });
   };
 
-  grunt.registerMultiTask('ngtemplates', 'Compile AngularJS templates for $templateCache', ngtemplatesTask);
+  grunt.registerMultiTask('ngHtmlCache', 'Compile AngularJS templates into $ngHtmlCache service', ngHtmlCacheTask);
 
 };
