@@ -2,7 +2,7 @@ Forked from https://github.com/ericclemmons/grunt-angular-templates
 
 Created for a very specific use case: $templateCache fails to inject or function at all while running unit tests in Karma, causing unit tests that rely on cached templates to fail.
 
-This module is a work around. It provides unit tests with a service ($ngHtmlCache) containing all the templates. Within the unit test use $httpBackend to trap the template request and the service to generate a response.
+This module is a work around. It provides a service, $ngHtmlCache, containing your html templates. Within the unit test use $httpBackend to trap the template request and $ngHtmlCache to create the response.
 
 
 ### Example Grunt configuration:
