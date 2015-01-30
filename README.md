@@ -5,8 +5,42 @@ Created for a very specific use case: $templateCache fails to inject or function
 This module is a work around. It provides unit tests with a service ($ngHtmlCache) containing all the templates. Within the unit test use $httpBackend to trap the template request and the service to generate a response.
 
 
+### Example Grunt configuration:
+````ngHtmlCache: {
+    app: {
+        src: ["Client/**/*.tpl.html", "Common/**/*.tpl.html"],
+        dest: "ClientTests/specs/myAppHTMLCache.js",
+        options: {
+            module: 'myApp', //name of our app
+            htmlmin: {
+                collapseBooleanAttributes: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true,
+                removeComments: true,
+                removeEmptyAttributes: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true
+            }
+        }
+    }
+}
+````
 
-## License
+### Using $ngHtmlCache in a unit test:
+
+````beforeEach(inject(function (_$rootScope_, _$compile_, _$httpBackend_, _$timeout_, _$ngHtmlCache_) {
+
+    var tplCache = _$ngHtmlCache_;
+    $httpBackend.when('GET', /\.tpl\.html/).respond(function(method, url, data) {
+        return [200, tplCache[url], {}];
+    });
+
+    ...
+}
+````
+
+### License
 
 Copyright (c) 2015 Chris Houseknecht
 Licensed under the MIT license.
