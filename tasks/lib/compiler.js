@@ -47,7 +47,8 @@ var Compiler = function(grunt, options, cwd) {
     // Append formatted URL
     path += Url.format( Url.parse( url.replace(/\\/g, '/') ) );
 
-    return "\n  $templateCache.put('" + path + "',\n    " + template + "\n  );\n";
+    //return "\n  $templateCache.put('" + path + "',\n    " + template + "\n  );\n";
+    return "\n \"" + path + "\": " + template + ",\n";
   };
 
   /**
