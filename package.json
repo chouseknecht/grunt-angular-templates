@@ -1,18 +1,18 @@
 {
-  "name": "grunt-angular-templates",
-  "description": "Grunt build task to concatenate & register your AngularJS templates in the $templateCache",
-  "version": "0.5.7",
-  "homepage": "https://github.com/ericclemmons/grunt-angular-templates",
+  "name": "grunt-ng-html-cache",
+  "description": "Grunt build task to concatenate & register your AngularJS templates in $ngHtmlCache service",
+  "version": "0.0.1",
+  "homepage": "https://github.com/chouseknecht/grunt-ng-html-cache",
   "author": {
-    "name": "Eric Clemmons",
-    "email": "eric@smarterspam.com"
+    "name": "Chris Houseknecht",
+    "email": "chouseknecht@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ericclemmons/grunt-angular-templates.git"
+    "url": "git@github.com:chouseknecht/grunt-ng-html-cache.git"
   },
   "bugs": {
-    "url": "https://github.com/ericclemmons/grunt-angular-templates/issues"
+    "url": "https://github.com/chouseknecht/grunt-ng-html-cache/issues"
   },
   "licenses": [
     {
