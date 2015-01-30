@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     cssmin: {},
 
     // All supported examples should be here
-    ngtemplates: {
+    ngHtmlCache: {
       // Change `angular` namespace to something else
       custom_angular: {
         src: ['test/fixtures/one.html', 'test/fixtures/two/**/*.html'],
@@ -141,7 +141,7 @@ module.exports = function(grunt) {
         src: ['test/fixtures/one.html', 'test/fixtures/two/**/*.html'],
         dest: 'tmp/task_htmlmin.js',
         options: {
-          htmlmin: '<%= ngtemplates.custom_htmlmin.options.htmlmin %>'
+          htmlmin: '<%= ngHtmlCache.custom_htmlmin.options.htmlmin %>'
         }
       },
 
@@ -252,5 +252,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-usemin');
 
-  grunt.registerTask('default', ['jshint', 'clean', 'copy', 'useminPrepare', 'ngtemplates', 'concat', 'uglify', 'cssmin', 'usemin', 'nodeunit']);
+  grunt.registerTask('default', ['jshint', 'clean', 'copy', 'useminPrepare', 'ngHtmlCache', 'concat', 'uglify', 'cssmin', 'usemin', 'nodeunit']);
 };
